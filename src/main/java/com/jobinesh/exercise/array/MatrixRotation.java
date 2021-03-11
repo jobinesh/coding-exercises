@@ -7,7 +7,10 @@ import java.util.Arrays;
  * where each pixel in the image is 4 bytes, write a method to rotate the image by 90 degrees.
  */
 public class MatrixRotation {
-    public boolean rotate(int[][] matrix){
+    public void rotate(int[][] matrix){
+        if(matrix == null || matrix.length==0 || matrix[0] == null || matrix.length != matrix[0].length ){
+            return;
+        }
         int layer= matrix[0].length/2;
         int length = matrix[0].length;
 
@@ -24,7 +27,6 @@ public class MatrixRotation {
                 matrix[j][end]=tmp;
             }
         }
-        return true;
     }
 
     public static void main(String args[]){
