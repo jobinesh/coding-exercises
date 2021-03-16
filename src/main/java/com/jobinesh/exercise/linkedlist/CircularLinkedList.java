@@ -1,14 +1,5 @@
 package com.jobinesh.exercise.linkedlist;
 
-class Node<T> {
-    T value;
-    Node<T> next;
-
-    public Node(T value) {
-        this.value = value;
-    }
-}
-
 /*
  * Write a routine for detecting if a linked list contains a loop.
  * It should return true if there is a loop or circular reference
@@ -80,15 +71,8 @@ public class CircularLinkedList<T> {
         if (detector.isLooped(list2)) {
             System.out.println("list2 is looped");
         }
-        printList(list2);
+        NodeUtil.printList(list2);
 
     }
 
-    // Function to print the linked list
-    static void printList(Node node) {
-        while (node != null) {
-            System.out.print(node.value + " ");
-            node = node.next;
-        }
-    }
 }
