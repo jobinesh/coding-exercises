@@ -15,6 +15,9 @@ public class ValidParentheses {
         return 0;
     }
     public boolean isValid(String s) {
+        if(s==null || s.isBlank()){
+            return false;
+        }
         Map<Character,Character> map = Map.of('{','}','[',']','(',')');
         ArrayDeque<Character> stack = new ArrayDeque();
         for (int i = 0; i < s.length(); i++) {
