@@ -7,5 +7,6 @@ public class NodeUtil {// Function to print the linked list
             System.out.print(node.value + " ");
             node = node.next;
         }
+        System.out.println("");
     }
 }

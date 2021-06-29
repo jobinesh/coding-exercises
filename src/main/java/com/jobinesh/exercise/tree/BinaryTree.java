@@ -1,16 +1,9 @@
-package com.jobinesh.exercise.search;
+package com.jobinesh.exercise.tree;
 
 public class BinaryTree {
 
 
-
-    static class Node {
-        private String value;
-        private Node left;
-        private Node right;
-    }
-
-    public void preOrder(Node node) {
+    public void preOrder(TreeNode node) {
         if (node == null) {
             return;
         }
@@ -19,7 +12,7 @@ public class BinaryTree {
         preOrder(node.right);
     }
 
-    public void postOrder(Node node) {
+    public void postOrder(TreeNode node) {
         if (node == null) {
             return;
         }
@@ -28,25 +21,25 @@ public class BinaryTree {
         System.out.println(node.value);
     }
 
-    public void inOrder(Node node) {
+    public void inOrder(TreeNode node) {
         if (node == null) {
             return;
         }
-        postOrder(node.left);
+        inOrder(node.left);
         System.out.println(node.value);
-        postOrder(node.right);
+        inOrder(node.right);
     }
 
     public static void main(String[] args) {
-        Node node = new Node();
+        TreeNode node = new TreeNode();
         node.value = "1";
-        node.left = new Node();
+        node.left = new TreeNode();
         node.left.value = "2";
-        node.left.left = new Node();
+        node.left.left = new TreeNode();
         node.left.left.value = "4";
-        node.left.right = new Node();
+        node.left.right = new TreeNode();
         node.left.right.value = "5";
-        node.right = new Node();
+        node.right = new TreeNode();
         node.right.value = "3";
         BinaryTree btree= new BinaryTree();
         System.out.println("-------------Post Order-------------");

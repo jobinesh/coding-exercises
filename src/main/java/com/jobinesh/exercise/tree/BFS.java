@@ -1,4 +1,4 @@
-package com.jobinesh.exercise.search;
+package com.jobinesh.exercise.tree;
 
 import java.util.HashSet;
 import java.util.LinkedList;
@@ -9,26 +9,26 @@ import java.util.Set;
 
 public class BFS<T> {
 
-    public Optional<T> search(Node<T> graph, T value) {
-        Set<Node<T>> visited = new HashSet<>();
-        Queue<Node<T>> q = new LinkedList<>();
+    public Optional<T> search(GraphNode<T> graph, T value) {
+        Set<GraphNode<T>> visited = new HashSet<>();
+        Queue<GraphNode<T>> q = new LinkedList<>();
         q.add(graph);
         while(!q.isEmpty()){
-            Node<T> node = q.poll();
-            if(node.getValue().equals(value)){
-                print(node.getValue().toString());
+            GraphNode<T> graphNode = q.poll();
+            if(graphNode.getValue().equals(value)){
+                print(graphNode.getValue().toString());
                 print("Found value");
-                return Optional.of(node.getValue());
+                return Optional.of(graphNode.getValue());
             }
-            print(node.getValue().toString());
+            print(graphNode.getValue().toString());
             /*
             node.getNeighbours().forEach( (n)->{
                 if(!q.contains(n)){
                     q.add(n);
                 }
             });*/
-            visited.add(node);
-            q.addAll(node.getNeighbours());
+            visited.add(graphNode);
+            q.addAll(graphNode.getNeighbours());
             q.removeAll(visited);
         }
         return Optional.empty();
@@ -68,15 +68,15 @@ public class BFS<T> {
     }
 
     public static void testGraph() {
-        Node<Integer> start = new Node<>(10);
-        Node<Integer> firstNeighbor = new Node<>(2);
+        GraphNode<Integer> start = new GraphNode<>(10);
+        GraphNode<Integer> firstNeighbor = new GraphNode<>(2);
         start.connect(firstNeighbor);
 
-        Node<Integer> firstNeighborNeighbor = new Node<>(3);
+        GraphNode<Integer> firstNeighborNeighbor = new GraphNode<>(3);
         firstNeighbor.connect(firstNeighborNeighbor);
         firstNeighborNeighbor.connect(start);
 
-        Node<Integer> secondNeighbor = new Node<>(4);
+        GraphNode<Integer> secondNeighbor = new GraphNode<>(4);
         start.connect(secondNeighbor);
 
         BFS<Integer> bfs = new BFS<>();
