@@ -44,9 +44,9 @@ public class SelectionSort {
         Assert.assertNotEquals(new int[] {5,6},src );
     }
     public static void main(String arg[]){
-        //int[] src={2,9,3,7,5,0,4};
-        //new SelectionSort().sort(src);
-       // System.out.println(Arrays.toString( src));
-        JUnitCore.main(SelectionSort.class.getName());
+        int[] src={2,9,3,7,5,0,4};
+        new SelectionSort().sort(src);
+       System.out.println(Arrays.toString( src));
+       // JUnitCore.main(SelectionSort.class.getName());
     }
 }
